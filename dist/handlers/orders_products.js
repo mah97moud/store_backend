@@ -39,22 +39,22 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-var product_1 = require("./../models/product");
+var orders_products_1 = require("./../models/orders_products");
 var dotenv_1 = __importDefault(require("dotenv"));
 var verify_auth_token_1 = __importDefault(require("../middleware/verify_auth_token"));
 dotenv_1["default"].config();
-var store = new product_1.ProductStore();
-var products = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var products_1, err_1;
+var store = new orders_products_1.OrderProductStore();
+var orders = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var products, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
                 return [4 /*yield*/, store.index()];
             case 1:
-                products_1 = _a.sent();
+                products = _a.sent();
                 res.json({
-                    products: products_1
+                    products: products
                 });
                 return [3 /*break*/, 3];
             case 2:
@@ -68,45 +68,45 @@ var products = function (req, res) { return __awaiter(void 0, void 0, void 0, fu
         }
     });
 }); };
-var create = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var p, newProduct, err_2;
+var show = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var orderId, p, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                p = {
-                    productName: req.body.productName,
-                    price: parseInt(req.body.price),
-                    category: req.body.category
-                };
+                orderId = parseInt(req.params.orderId);
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, store.create(p)];
+                return [4 /*yield*/, store.show(orderId)];
             case 2:
-                newProduct = _a.sent();
+                p = _a.sent();
                 res.json({
-                    product: newProduct
+                    order: p
                 });
                 return [3 /*break*/, 4];
             case 3:
                 err_2 = _a.sent();
-                res.status(400);
-                res.json("".concat(err_2, " ").concat(p));
+                res.status(401);
+                res.json({
+                    error: "".concat(err_2)
+                });
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
     });
 }); };
-var show = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
-    var id, p, err_3;
+var addProductInOrder = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var orderId, productId, productName, p, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
-                id = parseInt(req.params.id);
+                orderId = req.body.orderId;
+                productId = req.body.productId;
+                productName = req.body.productName;
                 _a.label = 1;
             case 1:
                 _a.trys.push([1, 3, , 4]);
-                return [4 /*yield*/, store.show(id)];
+                return [4 /*yield*/, store.addProductInOrder(orderId, productId, productName)];
             case 2:
                 p = _a.sent();
                 res.json({
@@ -124,9 +124,9 @@ var show = function (req, res) { return __awaiter(void 0, void 0, void 0, functi
         }
     });
 }); };
-var productRoutes = function (app) {
-    app.get('/products', products);
-    app.get('/product/:id', show);
-    app.post('/product/create', verify_auth_token_1["default"], create);
+var ordersProduct = function (app) {
+    app.get('/products/orders', verify_auth_token_1["default"], orders);
+    app.get('/products/:orderId', verify_auth_token_1["default"], show);
+    app.post('/order/addProduct', verify_auth_token_1["default"], addProductInOrder);
 };
-exports["default"] = productRoutes;
+exports["default"] = ordersProduct;

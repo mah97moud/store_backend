@@ -59,7 +59,7 @@ const show = async (req: Request, res: Response) => {
 const productRoutes = (app: express.Application) => {
   app.get('/products', products)
   app.get('/product/:id', show)
-  app.post('/product/addProduct', verifyAuthToken, create)
+  app.post('/product/create', verifyAuthToken, create)
 }
 
 export default productRoutes

@@ -8,6 +8,7 @@ var body_parser_1 = __importDefault(require("body-parser"));
 var users_1 = __importDefault(require("./handlers/users"));
 var products_1 = __importDefault(require("./handlers/products"));
 var orders_1 = __importDefault(require("./handlers/orders"));
+var orders_products_1 = __importDefault(require("./handlers/orders_products"));
 var app = (0, express_1["default"])();
 var address = '0.0.0.0:3000';
 app.use(body_parser_1["default"].json());
@@ -17,6 +18,7 @@ app.get('/', function (req, res) {
 (0, users_1["default"])(app);
 (0, products_1["default"])(app);
 (0, orders_1["default"])(app);
+(0, orders_products_1["default"])(app);
 app.listen(3000, function () {
     console.log("starting app on: ".concat(address));
 });
