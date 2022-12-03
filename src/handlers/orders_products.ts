@@ -57,7 +57,7 @@ const addProductInOrder = async (req: Request, res: Response) => {
 const ordersProduct = (app: express.Application) => {
   app.get('/products/orders', verifyAuthToken, orders)
   app.get('/products/:orderId', verifyAuthToken, show)
-  app.post('/order/addProduct', verifyAuthToken, addProductInOrder)
+  app.post('/orders/addProduct', addProductInOrder)
 }
 
 export default ordersProduct

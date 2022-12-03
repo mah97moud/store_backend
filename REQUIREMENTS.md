@@ -55,7 +55,8 @@ These are the notes from a meeting with the frontend developer that describe wha
 #### Orders
 
 - Current Order by user (args: user id)[token required]
-  Route for index '/order/:userId' [Get] Method
+  Route for show order '/products/:orderId' [Get] Method
+  Route for get all orders '/products/orders' [Get] Method
 
 #### Orders Products
 
@@ -64,7 +65,7 @@ These are the notes from a meeting with the frontend developer that describe wha
 - Show [token required]
   Route for index '/products/:orderId' [Get] Method
 - Create Order [token required]
-  Route for index '/order/addProduct' [Post] Method
+  Route for index '/orders/addProduct' [Post] Method
 
 ## Data Shapes
 

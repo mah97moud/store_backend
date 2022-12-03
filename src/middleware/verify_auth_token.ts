@@ -11,6 +11,7 @@ const verifyAuthToken = (req: Request, res: Response, next: Function) => {
     const authHeader = req.headers.authorization as string
     const token: string = authHeader?.split(' ')[1] as string
 
+    console.log(token)
     jwt.verify(token, TOKEN_SECRET)
     next()
   } catch (err) {

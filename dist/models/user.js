@@ -55,23 +55,20 @@ var UserStore = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        console.log(database_1.client);
-                        _a.label = 1;
-                    case 1:
-                        _a.trys.push([1, 4, , 5]);
+                        _a.trys.push([0, 3, , 4]);
                         return [4 /*yield*/, database_1.client.connect()];
-                    case 2:
+                    case 1:
                         conn = _a.sent();
                         sql = 'SELECT * FROM users';
                         return [4 /*yield*/, conn.query(sql)];
-                    case 3:
+                    case 2:
                         result = _a.sent();
                         conn.release();
                         return [2 /*return*/, result.rows];
-                    case 4:
+                    case 3:
                         err_1 = _a.sent();
                         throw new Error("unable to get users : ".concat(err_1, ")"));
-                    case 5: return [2 /*return*/];
+                    case 4: return [2 /*return*/];
                 }
             });
         });

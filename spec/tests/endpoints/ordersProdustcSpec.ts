@@ -16,4 +16,11 @@ describe('Test order products Endpoint responses', () => {
       .set('Authorization', `Bearar ${token}`)
     expect(response.status).toBe(200)
   })
+
+  it('Successful Get order GET[/products/:orderId]', async () => {
+    const response = await request
+      .get('/products/1')
+      .set('Authorization', `Bearar ${token}`)
+    expect(response.status).toBe(200)
+  })
 })

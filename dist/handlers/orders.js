@@ -40,9 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 var orders_1 = require("./../models/orders");
-var dotenv_1 = __importDefault(require("dotenv"));
 var verify_auth_token_1 = __importDefault(require("../middleware/verify_auth_token"));
-dotenv_1["default"].config();
 var store = new orders_1.OrderStore();
 var orders = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var orders_2, err_1;

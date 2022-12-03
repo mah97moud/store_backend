@@ -39,11 +39,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-var dotenv_1 = __importDefault(require("dotenv"));
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var verify_auth_token_1 = __importDefault(require("../middleware/verify_auth_token"));
 var user_1 = require("../models/user");
-dotenv_1["default"].config();
 var store = new user_1.UserStore();
 var TOKEN_SECRET = process.env.TOKEN_SECRET;
 var users = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
