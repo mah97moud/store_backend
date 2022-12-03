@@ -1,31 +1,3 @@
-# for run this project follow steps
-
-# Start Project
-
-npm install
-
-# start server
-
-npm run watch
-
-# Storefront Backend Project
-
-# import info
-
-1- port = 3000
-2- env variable
-POSTGRES_HOST=127.0.0.1
-POSTGRES_DB=store
-POSTGRES_TEST_DB=store_test
-POSTGRES_USER=postgres
-POSTGRES_PASSWORD=123456
-
-ENV=dev
-BCRYPT_PASSWORD=my_Secret
-
-SALT_ROUNDS=20
-TOKEN_SECRET=MAHMOUD_SECRET
-
 ## Getting Started
 
 This repo contains a basic Node and Express app to get you started in constructing an API. To get started, clone this repo and run `yarn` in your terminal at the project root.
