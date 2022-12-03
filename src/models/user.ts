@@ -18,7 +18,6 @@ const pepper: string = process.env.BCRYPT_PASSWORD as string
 
 export class UserStore {
   async index(): Promise<User[]> {
-    console.log(client)
     try {
       const conn = await client.connect()
       const sql = 'SELECT * FROM users'

@@ -5,7 +5,6 @@ import jwt from 'jsonwebtoken'
 import verifyAuthToken from '../middleware/verify_auth_token'
 import { User, UserStore } from '../models/user'
 
-dotenv.config()
 const store = new UserStore()
 
 const { TOKEN_SECRET } = process.env

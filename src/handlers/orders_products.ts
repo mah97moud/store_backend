@@ -5,7 +5,6 @@ import express, { Request, Response } from 'express'
 
 import verifyAuthToken from '../middleware/verify_auth_token'
 
-dotenv.config()
 const store = new OrderProductStore()
 
 const orders = async (req: Request, res: Response) => {
