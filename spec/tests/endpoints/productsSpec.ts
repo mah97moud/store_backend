@@ -26,7 +26,7 @@ describe('Test products Endpoint responses', () => {
     expect(response.status).toBe(200)
   })
 
-  it('Successful create Product GET[/product/create]', async () => {
+  it('Successful create Product POST[/product/create]', async () => {
     const product: Product = {
       productName: 'Test',
       price: 20,
