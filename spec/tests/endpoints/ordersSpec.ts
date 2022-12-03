@@ -4,10 +4,6 @@ import app from '../../../src/server'
 
 const request = supertest(app)
 
-/**
-- Create Order [token required]
-  Route for index '/order/addProduct' [Post] Method */
-
 describe('Test orders Endpoint responses', () => {
   var token = ''
   beforeAll(async function () {

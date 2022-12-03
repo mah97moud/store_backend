@@ -35,10 +35,10 @@ describe('User Model', () => {
     expect(result).toBeTruthy()
   })
 
-  // it('show method should return the correct book', async () => {
-  //   const result = await store.show(1)
-  //   expect(result).toBeTruthy()
-  // })
+  it('show method should return the correct book', async () => {
+    const result = await store.show(1)
+    expect(result).toBeTruthy()
+  })
 
   it('delete method should remove the book', async () => {
     const result = await store.destroy(1)
